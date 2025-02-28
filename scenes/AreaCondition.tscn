@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7db5g7xj45kp"]
+
+[ext_resource type="Script" path="res://scenes/lose_condition.gd" id="1_yugax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkhw4"]
+size = Vector2(65, 107)
+
+[node name="AreaCondition" type="Area2D"]
+script = ExtResource("1_yugax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qkhw4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
