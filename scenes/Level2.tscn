@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://ctvepol3dn854"]
+[gd_scene load_steps=6 format=4 uid="uid://ctvepol3dn854"]
+
+[ext_resource type="PackedScene" uid="uid://bc2fujtl13g10" path="res://scenes/Player.tscn" id="1_h556m"]
+[ext_resource type="Texture2D" uid="uid://cela4hnu06pql" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_stone.png" id="2_8lncb"]
+[ext_resource type="PackedScene" uid="uid://b7db5g7xj45kp" path="res://scenes/AreaCondition.tscn" id="3_1p5o7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x5phc"]
+texture = ExtResource("2_8lncb")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7tcl1"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_x5phc")
 
 [node name="Level2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_h556m")]
+position = Vector2(457, 205)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAIAAAADAAAAAAD//wEAAAAEAAEAAAD+/wEAAAADAAEAAAD9/wEAAAADAAEAAAAGAAIAAAADAAEAAAAHAAIAAAADAAEAAAAIAAEAAAAFAAEAAAAKAAAAAAAFAAEAAAAMAP//AAAFAAEAAAAJAAEAAAAEAAAAAAALAAAAAAAEAAAAAAANAP//AAAEAAAAAAAKAAEAAAAAAAEAAAAMAAAAAAAAAAEAAAAOAP//AAABAAAAAAAPAP//AAABAAAAAAD8/wEAAAABAAAAAAD7/wEAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_7tcl1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AreaCondition" parent="." instance=ExtResource("3_1p5o7")]
+position = Vector2(464, 438)
+scale = Vector2(200, 1)
+sceneName = "Level2"
