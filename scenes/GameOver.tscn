@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cta1lik4k5d4g"]
+
+[ext_resource type="Script" path="res://scenes/PlayAgain_button.gd" id="1_o180s"]
+
+[node name="GameOver" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.53386, 0.0287332, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 120.0
+offset_right = 980.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 150
+text = "Game Over
+"
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 398.0
+offset_right = 646.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0.0826855, 0.747076, 0.593265, 1)
+theme_override_font_sizes/font_size = 30
+text = "Play Again"
+underline = 1
+script = ExtResource("1_o180s")
+scene_to_load = "Level1"
+
+[connection signal="button_down" from="LinkButton" to="LinkButton" method="_on_New_Game_pressed"]

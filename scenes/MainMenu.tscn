@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs2j1kqq5gccw"]
+
+[ext_resource type="Script" path="res://scenes/link_button.gd" id="1_snebh"]
+[ext_resource type="Texture2D" uid="uid://cs0ioe4suc7qj" path="res://assets/kenney_platformerpack/PNG/Players/128x256/Pink/alienPink_swim2.png" id="2_qfojq"]
+[ext_resource type="Script" path="res://scenes/selectStage_button.gd" id="2_vuhmo"]
+
+[sub_resource type="FontFile" id="FontFile_rcik2"]
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_rcik2")
+theme_override_font_sizes/font_size = 100
+text = "Explore Alien"
+
+[node name="LinkButton" type="LinkButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.854902, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "New Game"
+underline = 1
+script = ExtResource("1_snebh")
+
+[node name="LinkButton2" type="LinkButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.803922, 0.854902, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Stage Select"
+underline = 1
+script = ExtResource("2_vuhmo")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_qfojq")
+stretch_mode = 5
+
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/LinkButton" to="HBoxContainer/VBoxContainer/LinkButton" method="_on_New_Game_pressed"]
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/LinkButton2" to="HBoxContainer/VBoxContainer/LinkButton2" method="_on_Select_pressed"]
